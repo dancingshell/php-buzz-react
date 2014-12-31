@@ -3,6 +3,7 @@
 namespace Clue\React\Buzz\Message;
 
 use Clue\React\Buzz\Message\Headers;
+use Clue\React\Buzz\Message\Body;
 
 class Response implements Message
 {
@@ -12,6 +13,13 @@ class Response implements Message
     private $headers;
     private $body;
 
+    /**
+     * @param $protocol
+     * @param $code
+     * @param $reasonPhrase
+     * @param \Clue\React\Buzz\Message\Headers $headers
+     * @param \Clue\React\Buzz\Message\Body $body
+     */
     public function __construct($protocol, $code, $reasonPhrase, Headers $headers = null, Body $body = null)
     {
         if ($headers === null) {
@@ -52,6 +60,10 @@ class Response implements Message
         return $this->headers;
     }
 
+    /**
+     * @param $name String
+     * @return mixed
+     */
     public function getHeader($name)
     {
         return $this->headers->getHeaderValue($name);

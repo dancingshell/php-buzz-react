@@ -6,11 +6,18 @@ class Headers
 {
     private $headers;
 
-    public function __construct(array $headers = array())
+    /**
+     * @param array $headers
+     */
+    public function __construct($headers = array())
     {
         $this->headers = $headers;
     }
 
+    /**
+     * @param $search String
+     * @return array
+     */
     public function getHeaderValues($search)
     {
         $search = strtolower($search);
@@ -32,6 +39,10 @@ class Headers
         return $ret;
     }
 
+    /**
+     * @param $search String
+     * @return mixed
+     */
     public function getHeaderValue($search)
     {
         $values = $this->getHeaderValues($search);
@@ -39,6 +50,9 @@ class Headers
         return isset($values[0]) ? $values[0] : null;
     }
 
+    /**
+     * @return array
+     */
     public function getAll()
     {
         return $this->headers;

@@ -6,6 +6,9 @@ class Body
 {
     private $message;
 
+    /**
+     * @param string $message
+     */
     public function __construct($message = '')
     {
         $this->message = (string)$message;

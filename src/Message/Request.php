@@ -16,6 +16,12 @@ class Request implements Message
     /* @var ResponseStream */
     private $responseStream = null;
 
+    /**
+     * @param $method String
+     * @param $url String
+     * @param \Clue\React\Buzz\Message\Headers $headers
+     * @param \Clue\React\Buzz\Message\Body $body
+     */
     public function __construct($method, $url, Headers $headers = null, Body $body = null)
     {
         if ($headers === null) {
